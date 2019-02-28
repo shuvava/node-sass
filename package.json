@@ -1,0 +1,25 @@
+{
+  "name": "node-sass-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "npx node-sass sass/main.scss css/style.css",
+    "watch-sass": "npx node-sass sass/main.scss css/style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuvava/node-sass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuvava/node-sass/issues"
+  },
+  "homepage": "https://github.com/shuvava/node-sass#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

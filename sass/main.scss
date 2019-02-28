@@ -1,0 +1,106 @@
+//https://blog.bitsrc.io/the-complete-beginners-guide-to-sass-ee8d5278f4c
+//https://habr.com/en/post/434098/
+$color-primary: #55c57a;
+$color-secondary: #7ed56f;
+
+.heading-primary {
+    color: $color-primary;
+    text-align: center;
+    margin-top: 10px;
+}
+.heading-secondary {
+    color: $color-secondary;
+    text-align: center;
+    margin-top: 15px;
+}
+//nesting
+.navigation {
+    background-color: yellow;
+    padding: 20px;
+    ul {
+        list-style: none;
+    }
+    li {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+//Mixins
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+.box {
+    @include border-radius(10px);
+}
+
+//Functions
+@function divide($a, $b) {
+    @return $a / $b;
+}
+div {
+    margin: divide(60, 2) * 1px;
+    height: 200px;
+    width: 200px;
+}
+//Inheritance/Extend
+%panel {
+    background-color: blue;
+    border: 2px solid red;
+}
+.small-panel {
+    @extend %panel;
+    width: 70px;
+    height: 70px;
+}
+.big-panel {
+    @extend %panel;
+    width: 200px;
+    height: 200px;
+}
+//Ampersand (&) operator
+
+.btn {
+    display: inline-block;
+    padding: 5px 8px;
+    &--green { //will be btn--green
+        background-color: green;
+    }
+    &:hover {
+        background-color: transparent;
+    }
+}
+// Directives
+@mixin text-color($val) {
+@if $val == error {
+    color: red;
+}
+@else if $val == warning {
+    color: yellow;
+}
+@else if $val == success {
+    color: green;
+}
+@else {
+    color: black
+}
+}
+.heading {
+@include text-color(error);
+}
+@for $i from 1 through 4{
+.col-#{$i} {
+    width: 100% / $i;
+}
+}
+
+$i: 1;
+@while $i < 5 {
+  .col-#{$i} {
+     width: 100% / $i;
+  }
+  $i: $i + 1;
+}
